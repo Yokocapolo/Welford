@@ -1,0 +1,450 @@
+@import mixins
+@import fonts
+
+//transition for links
+$opacity: opacity 250ms ease-in-out, transform 150ms ease
+
+//set box sizing to border box for ease of sizing objects
+html
+	+box-sizing (border-box)
+	height: 100%
+	margin: 0
+	ul
+		margin-block-start: 0
+		margin-block-end: 0
+		padding-inline-start: 0
+
+*, *:before, *:after
+	+box-sizing (inherit)
+	list-style-type: none
+
+//set to flex with column direction to keep footer below all content
+body
+	background: #FFF
+	height: 100vh
+	margin: 0
+	+flexbox
+	+flex-direction (column)
+	font-family: 'caviar'
+	font-weight: normal
+
+//syle all links
+a
+	text-decoration: none
+	color: #000
+
+a:hover, a:focus
+		opacity: 0.5
+
+a:active
+		color: #e5e5e5
+
+//style all headers
+h1, h2, h3, h4
+	text-align: center
+	text-transform: uppercase
+
+//contains all content and set to take up the whole space
+.page__wrapper
+	position: relative
+	height: 100vh
+	+flex(1 0 auto)
+	font-size: 13px
+	letter-spacing: 0.2em
+
+//title and navigation starts here
+.title
+	width: 100%
+	border-bottom: 1px solid #e5e5e5
+	padding-bottom: 10px
+
+.title__header
+	margin-top: 30px
+	font-weight: normal
+	font-size: 1.2em
+
+//set everything to centre
+.title__wrapper
+		+flex_center
+
+//buttons for the search and basket links
+.btn
+	background: none
+	border: none
+	margin: 0
+	padding: 0
+	text-decoration: none
+	color: #fff
+	cursor: pointer
+	+transition ($opacity)
+
+//change opacity on hover
+.btn:hover, .btn:focus
+	opacity: 0.5
+
+//search icon position
+.btn--search
+	margin-right: 100px
+
+//basket button position
+.btn--basket
+	margin-left: 100px
+
+//all navigation starts here and set to centre with fixed width
+nav
+	width: 932px
+	text-transform: uppercase
+	font-size: 0.8em
+	font-weight: bold
+
+//align navigation links in the centre and space around
+.nav__menu
+	+flexbox
+	+flex-flow (row wrap)
+	+justify-content (space-around)
+	+align-items (center)
+	width: 100%
+	padding: 0
+
+.nav__list
+	list-style-type: none
+
+.nav__link
+	+transition ($opacity)
+
+.nav__link:visited
+		color: #000
+
+//End of title and navigation styles
+
+
+//start of main content
+.main
+	margin-top: 20px
+	margin-bottom: 60px
+
+//contains top two links and take up the full width of the page. Set all items to centre
+.top__wrapper
+	width: 100%
+	margin-bottom: 15px
+	+flexbox
+	+flex-flow (row wrap)
+	+justify-content (center)
+
+//set space between box1 and box2
+.top__box1
+	margin-right: 0.5%
+
+//set size to 100% to scale with window resize
+.box1__img
+	max-width: 100%
+	height: 100%
+
+.box1__link, .box2__link
+		+transition ($opacity)
+
+//set size of box2 and set space between box1 set style of hr tag here
+.top__box2
+	width: 580px
+	height: 600px
+	margin-left: 0.5%
+	hr
+		width: 48px
+		margin-bottom: 20px
+
+//set size of link to make the whole box2 clickable not just the text, set all items to column and centre
+.box2__link
+	+flexbox
+	+flex-flow (column wrap)
+	+justify-content (center)
+	+align-items (center)
+	width: 100%
+	height: 100%
+	background: #9AB4B3
+
+.box2--white
+	color: #FFF
+
+.box2__text
+		font-family: 'Didot'
+		font-style: italic
+		margin-bottom: 30px
+		align-self: center
+
+.box2__title
+		width: 238px
+		font-size: 5em
+		font-weight: normal
+		margin-top: 0
+		margin-bottom: 30px
+
+.box2__header
+		width: 99%
+		+flexbox
+		+flex-flow (column wrap)
+		+justify-content (center)
+		+align-items (center)
+		align-self: center
+
+//End of top wrapper
+
+//start of next set of links, below the top wrapper. Set all items to take up full width and centre.
+.middle__wrapper
+	margin-bottom: 50px
+
+//set everything to centre and take up full width
+.info__list
+	width: 100%
+	+flexbox
+	+flex-flow (row wrap)
+	+justify-content (center)
+
+//set space below items to create space between each other on smaller screens
+.info__item
+	margin-bottom: 10px
+
+//set spacing between each item
+.info--making
+	margin-right: 0.5%
+
+//set spacing between each item
+.info--story
+	margin-left: 0.5%
+	margin-right: 0.5%
+
+//set spacing between each item
+.info--comm
+	margin-left: 0.5%
+
+//set background image of link, so the whole image and text is clickable
+.info__link--making
+	background: url('../images/thomas-ae-602202-unsplash-small.jpg') no-repeat
+	background-position-y: -40px
+
+//set background image of link, so the whole image and text is clickable
+.info__link--story
+	background: url('../images/beatriz-perez-moya-191993-unsplash-small.jpg') no-repeat
+
+//set background image of link, so the whole image and text is clickable
+.info__link--comm
+	background: url('../images/tom-the-photographer-651516-unsplash-small.jpg') no-repeat
+	background-position-y: -100px
+
+//set size and all children to column and center, align items at the bottom of the parent
+.info__link
+	+flex_col_end_center
+	width: 380px
+	height: 360px
+	background-size: cover
+	+transition ($opacity)
+
+//set the header and text to the center
+.info__header
+	width: 90%
+	height: 32%
+	text-align: center
+	color: #9ab4b3
+	background: #FFF
+	margin-bottom: -50px
+	outline: #E5E5E5 1px solid
+	outline-offset: -5px
+	+flex_center
+
+.info__title
+	margin-top: -14px
+	font-size: 1.1em
+
+.info__text
+	margin-top: 5px
+	margin-bottom: 52px
+	font-family: 'Didot'
+	color: #a3a3a3
+
+//End of the middle wrapper
+
+
+//Start of the favourite links below middle wrapper. Set to take up whole width and set to column
+.bottom__wrapper
+	text-align: center
+	width: 100%
+
+//set space below the wrapper
+.bottom__header
+	margin-bottom: 50px
+
+.bottom__title
+	font-size: 1.2em
+
+.bottom__text
+	color: #999999
+	font-family: 'didot'
+	font-style: italic
+
+//set all items to row and set to centre
+.fave__list
+	width: 100%
+	+flexbox
+	+justify-content (center)
+	+flex-flow (row wrap)
+	+align-items (flex-start)
+
+.fave__title
+		font-size: 0.8em
+
+.fave--margin
+	margin-bottom: -40px
+
+.fave__text
+		font-style: normal
+		font-size: 0.8em
+		color: #999
+
+//sale icon to be applied to sale item and position
+.fave--sale::before
+	content: url('../images/sale.png')
+	position: relative
+	top: -324px
+	left: 38px
+	margin-right: -50px
+
+//old price
+.fave--sale
+	text-decoration: line-through
+	color: #999999
+
+//new price
+.fave--teal
+	color: #99bcdf
+
+
+.fave__link:visited
+	color: #000
+
+//set space between items and space below for small screen
+.fave--fav1
+	margin-right: 0.5%
+	margin-bottom: 60px
+
+//set space between items and space below for small screen
+.fave--fav2
+	margin: 0% 0.5% 0% 0.5%
+	margin-bottom: 50px
+
+//set space between items and space below for small screen
+.fave--fav3
+	margin: 0% 0.5% 0% 0.5%
+
+//set space between items and space below for small screen
+.fave--fav4
+	margin-left: 0.5%
+	margin-bottom: 10px
+
+//set background image of link and position so whole image is clickable
+.fave--bg1
+	background: url('../images/monika-grabkowska-664428-unsplash-small.jpg') no-repeat
+	background-position-y: -80px
+
+//set background image of link and position so whole image is clickable
+.fave--bg2
+	height: 310px !important
+	background: url('../images/tanalee-youngblood-344759-unsplash-small.jpg') no-repeat
+	background-position: -10px -10px
+
+//set background image of link and position so whole image is clickable
+.fave--bg3
+	height: 360px !important
+	background: url('../images/alexandra-gorn-328026-unsplash-small.jpg') no-repeat
+	background-position: -10px -60px
+
+//set background image of link and position so whole image is clickable
+.fave--bg4
+	background: url('../images/christie-kim-769380-unsplash-small.jpg') no-repeat
+	background-position-y: -80px
+
+//position text in the correct place
+.fave--position1
+	margin-bottom: -60px
+
+//position text in the correct place
+.fave--position2
+	margin-bottom: -50px
+
+//set size and set all items to column, position centre and align to bottom of images
+.fave__link
+	width: 280px
+	height: 300px
+	background-size: cover
+	+flex_col_end_center
+	+transition ($opacity)
+
+//End of bottom wrapper
+
+//start of footer, below main content.
+footer
+	font-weight: normal
+	margin-bottom: 100px
+
+//style small print links
+.footer__faq
+	border-top: 1px solid #e5e5e5
+	border-bottom: 1px solid #e5e5e5
+	font-family: 'Didot'
+	font-size: 0.9em
+	color: #a3a3a3
+	margin-bottom: 40px
+
+//set items to centre
+.footer__list
+	+flex_center
+
+.footer--faq
+	width: 100%
+	padding: 0
+
+.footer__item
+	list-style-type: none
+	margin-left: 2%
+	margin-right: 2%
+	padding: 0
+
+.footer__header
+	padding: 0
+	color: #a3a3a3
+	+transition ($opacity)
+	font-weight: 500
+
+.footer__header:hover, .footer__header:focus
+	opacity: 0.5
+
+.footer__link
+	display: block
+
+.footer__link:visited, .footer__link:active
+	color: #a3a3a3
+
+//style social buttons.
+.footer--social
+		width: 100%
+		margin-bottom: 30px
+
+.footer__item--social
+	margin-left: 1%
+	margin-right: 1%
+	+transition ($opacity)
+
+.footer__item--social:hover, .footer__item--social:focus
+	opacity: 0.8
+
+.footer__copyright
+	font-size: 0.9em
+	margin-bottom: 10px
+	color: #aaa
+
+.footer__text
+	text-align: center
+	font-family: 'Didot'
+	font-size: 1.2em
+	font-style: italic
+
+//import media queries.
+@import media-queries
